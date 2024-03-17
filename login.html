@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #A0A9CC;
+        color: #fff;
+        font-size: 1.5em;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", sans-serif;
+        font-weight: 100;
+        text-align: center;
+    }
+
+    .container {
+        background: #B7BED8;
+        color: #6A79A6;
+        display: inline-block;
+        padding: 0em 2em;
+        margin: 6em auto;
+        box-shadow: 0 50px 50px rgba(0, 0, 0, .2);
+    }
+
+    .navigation {
+        text-align: left;
+    }
+
+    .navigation ol {
+        list-style: none;
+        background: #B7BED8;
+        position: absolute;
+        padding: 30px 0;
+        width: 600px;
+        z-index: 100;
+    }
+
+    .navigation li {
+        display: inline-block;
+        margin-right: 27px;
+        font-size: 0.7em;
+        max-width: 20%;
+        text-align: left;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .navigation a {
+        color: #fff;
+        text-decoration: none;
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    .navigation a.done {
+        opacity: 1;
+    }
+
+    .login-form {
+        width: 600px;
+        text-align: left;
+        margin: 85px 0 0 0;
+    }
+
+    .questions {
+        list-style: none;
+        -webkit-transition: height 0.4s;
+        transition: height 0.4s;
+        width: 88%;
+        display: inline-block;
+        height: 80px;
+    }
+
+    .questions li {
+        position: absolute;
+        width: 500px;
+    }
+
+    .questions li span {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .questions li input {
+        width: 100%;
+        font-size: .9em;
+        color: #f2f2f2;
+        margin: 0.3em 0 1em 0;
+        border: none;
+        background: none;
+        border-bottom: 3px solid #fff;
+        padding: 0.5em 0.1em;
+        transition: all 0.5s ease;
+    }
+
+    .questions li input:focus {
+        outline: none;
+        border-bottom: 3px solid #6A79A6;
+    }
+
+    .questions li:not(:first-child) {
+        opacity: 0;
+        margin-top: 150px;
+    }
+
+    .error-message {
+        color: rgba(207, 0, 0, 0.56);
+        font-size: 14px;
+        margin-top: 10px;
+        padding-bottom: 30px;
+        background: #B7BED8;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="login.js"></script> 
+</head>
+<body>
+  <div class="container">
+    <div class="navigation">
+        <ol>
+            <li><a href="#"  data-ref="email">Email</a></li>
+            <li><a href="#"  data-ref="password">Password</a></li>
+        </ol>
+    </div>
+    <form id="login-form" class="login-form">
+        <ol class="questions">
+            <li>
+                <span><label for="email">Enter your email</label></span>
+                <input class="active" id="email" name="email" type="text" placeholder="Email" autofocus/>
+            </li>
+            <li>
+                <span><label for="password">Enter your password</label></span>
+                <input id="password" name="password" type="password" placeholder="Password" autofocus/>
+            </li>
+            <li>
+                <button type="submit">Login</button>
+            </li>
+        </ol>
+        <div class="error-message"></div>
+    </form>
+  </div>
+</body>
+</html>
